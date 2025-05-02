@@ -1,0 +1,118 @@
+<mvc:View
+  controllerName="logaligroup.retojpvv.controller.MainView"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+
+  <App id="appRetojpvv">
+    <pages>
+      <Page id="pRetojpvv" title="Gestión de Usuarios">
+        <content>
+
+          <!-- Panel con campos del formulario -->
+          <Panel id="panelRetojpvv" headerText="Información del Usuario" expandable="true" expanded="true" class="sapUiSmallMargin">
+            <VBox id="vbRetojpvv" class="sapUiSmallMargin">
+              <!-- 1. Personal Information -->
+              <Panel headerText="Personal Information" expandable="true" expanded="true">
+                <VBox class="sapUiSmallMargin">
+                  <Label id="lblId" text="ID"/>
+                  <Input id="txtId" value="{/currentUser/id}" />
+
+                  <Label id="lblTipoDocumento" text="Tipo de Documento"/>
+                  <Input id="txtTipoDocumento" value="{/currentUser/typeDocument}" />
+
+                  <Label id="lblNumeroDocumento" text="Número de Documento"/>
+                  <Input id="txtNumeroDocumento" value="{/currentUser/numberDocument}" />
+
+                  <Label id="lblNombre" text="Nombre"/>
+                  <Input id="txtNombre" value="{/currentUser/firstName}" />
+
+                  <Label id="lblApellido" text="Apellido"/>
+                  <Input id="txtApellido" value="{/currentUser/lastName}" />
+
+                  <Label id="lblFechaNacimiento" text="Fecha de Nacimiento"/>
+                  <DatePicker id="dpFechaNacimiento" value="{/currentUser/birthDate}" displayFormat="yyyy-MM-dd" />
+                </VBox>
+              </Panel>
+
+              <!-- 2. Other Information -->
+              <Panel headerText="Other Information" expandable="true" expanded="false">
+                <VBox class="sapUiSmallMargin">
+                  <Label id="lblLugarNacimiento" text="Lugar de Nacimiento"/>
+                  <Input id="txtLugarNacimiento" value="{/currentUser/placeBirth}" />
+
+                  <Label id="lblNacionalidad" text="Nacionalidad"/>
+                  <Input id="txtNacionalidad" value="{/currentUser/nationality}" />
+
+                  <Label id="lblGenero" text="Género"/>
+                  <Input id="txtGenero" value="{/currentUser/genre}" />
+
+                  <Label id="lblEstadoCivil" text="Estado Civil"/>
+                  <Input id="txtEstadoCivil" value="{/currentUser/civilStatus}" />
+                </VBox>
+              </Panel>
+
+              <!-- 3. Address Information -->
+              <Panel headerText="Address Information" expandable="true" expanded="false">
+                <VBox class="sapUiSmallMargin">
+                  <Label id="lblPais" text="País"/>
+                  <Input id="txtPais" value="{/currentUser/country}" />
+
+                  <Label id="lblProvincia" text="Provincia"/>
+                  <Input id="txtProvincia" value="{/currentUser/province}" />
+
+                  <Label id="lblRegion" text="Región"/>
+                  <Input id="txtRegion" value="{/currentUser/region}" />
+
+                  <Label id="lblDireccion" text="Dirección"/>
+                  <Input id="txtDireccion" value="{/currentUser/address}" />
+
+                  <Label id="lblCodigoPostal" text="Código Postal"/>
+                  <Input id="txtCodigoPostal" value="{/currentUser/postalCode}" />
+                </VBox>
+              </Panel>
+
+              <!-- 4. Contact Information -->
+              <Panel headerText="Contact Information" expandable="true" expanded="false">
+                <VBox class="sapUiSmallMargin">
+                  <Label id="lblTelefono" text="Teléfono"/>
+                  <Input id="txtTelefono" value="{/currentUser/phoneNumber}" />
+
+                  <Label id="lblCorreoElectronico" text="Correo Electrónico"/>
+                  <Input id="txtCorreoElectronico" value="{/currentUser/email}" />
+                </VBox>
+              </Panel>
+
+              <Button id="btnGuardar" text="Guardar" press="onSubmit" type="Emphasized" class="sapUiSmallMarginTop"/>
+            </VBox>
+          </Panel>
+
+          <!-- Tabla para mostrar los datos -->
+          <Table id="tRetojpvv" items="{/users}" class="sapUiSmallMarginTop">
+            <columns>
+              <Column id="cID"><Text id="tID" text="ID" /></Column>
+              <Column id="cNombre"><Text id="tNombre" text="Nombre" /></Column>
+              <Column id="cApellido"><Text id="tApellido" text="Apellido" /></Column>
+              <Column id="cTipoDocumento"><Text id="tTipoDocumento" text="Tipo Doc." /></Column>
+              <Column id="cNroDoc"><Text id="tNroDoc" text="Nro Doc." /></Column>
+              <Column id="cCorreo"><Text id="tCorreo" text="Correo" /></Column>
+            </columns>
+            <items>
+              <ColumnListItem id="clRetojpvv">
+                <cells>
+                  <Text id="txID" text="{id}" />
+                  <Text id="txFirstName" text="{firstName}" />
+                  <Text id="txLastName" text="{lastName}" />
+                  <Text id="txTypeDocument" text="{typeDocument}" />
+                  <Text id="txNumberDocument" text="{numberDocument}" />
+                  <Text id="txEmail" text="{email}" />
+                </cells>
+              </ColumnListItem>
+            </items>
+          </Table>
+
+        </content>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>
